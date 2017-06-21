@@ -160,4 +160,8 @@ get_header(); // Подключаем хедер?>
         </div>
 </section>
 
+<section class="products__prepare" id="products__prepare">
+
+</section>
+
 <?php get_footer(); // Подключаем футер ?>
