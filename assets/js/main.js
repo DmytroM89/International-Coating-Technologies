@@ -62,6 +62,110 @@ jQuery(document).ready(function ($) {
         asNavFor: '.p-slider__name',
     });
 
+    /**
+     *  Slider products prepare
+     */
+    $('.products__prepare__slider__type').slick({
+        dots: false,
+        arrows: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        adaptiveHeight: true,
+        asNavFor: '.products__prepare__slider__items',
+        responsive: [
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 543,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
+
+    $('.products__prepare__slider__items').slick({
+        dots: false,
+        arrows: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        adaptiveHeight: true,
+        asNavFor: '.products__prepare__slider__type',
+        responsive: [
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 543,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
+
+    /**
+     *  Magnific prepare
+     */
+    $('.products__prepare__items').each(function() {
+        var popup = $(this).next();
+        $(this).magnificPopup({
+            removalDelay: 500,
+            midClick: true,
+            closeOnContentClick: false,
+            items: {
+                src: $(popup),
+                type: 'inline'
+            },
+            mainClass: $(popup).data('effect'),
+            showCloseBtn: true
+        });
+    });
+
+    $('.prepare__slider').slick({
+        dots: false,
+        arrows: false,
+        infinite: true,
+        autoplay: true,
+        draggable: false,
+        speed: 1300,
+        fade: true,
+        cssEase: 'linear',
+        pauseOnHover: false,
+        waitForAnimate: true
+    });
+
     // Animation menu button
     $('.menu_btn').click(function () {
        $(this).toggleClass('open');

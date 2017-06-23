@@ -1,6 +1,7 @@
 @import "_reset"
 @import "_fonts"
 @import "_flexboxgrid"
+@import "_animation"
 
 //Colors
 $dark-blue: #273d46
@@ -31,7 +32,7 @@ section
   padding: 30px 0
   .section__title
     display: inline-block
-    width: 275px
+    width: 100%
     height: 44px
     text-align: center
     text-transform: uppercase
@@ -43,6 +44,10 @@ section
     border-radius: 20px
     margin-bottom: 55px
     box-shadow: 0 6px 40px 0 rgba(128, 183, 179, 0.54)
+    padding: 0 8px
+    @include xs
+      font-size: 12px
+
 
 
 /**
@@ -514,7 +519,7 @@ section
       @media (max-width: $xl-top)
         border: 10px solid #fff
       @media (min-width: $xxl)
-        border: 15px solid #fff
+        border: 10px solid #fff
     .slider__box_sm
       left: 80px
       width: 200px
@@ -699,7 +704,6 @@ section
       margin-bottom: 0px
     @media (min-width: $lg)
       width: 880px
-      margin-bottom: 135px
     &:after
       content: ''
       display: block
@@ -721,8 +725,8 @@ section
       @media (min-width: $lg)
         width: 289px
         height: 407px
-        position: absolute
-        bottom: 224px
+        position: relative
+        bottom: 98px
     .p-slider__name
       .product__name
         text-transform: uppercase
@@ -831,12 +835,14 @@ section
       line-height: 18px
       position: relative
       top: -25px
+      padding-left: 15px
+      padding-right: 15px
     @include sm
       font-size: 18px
       line-height: 22px
       position: relative
       top: -185px
-      padding-left: 12.5rem
+      padding-left: 13rem
     @include md
       font-size: 18px
       line-height: 22px
@@ -848,16 +854,19 @@ section
       line-height: 46px
       padding-left: 17.5rem
       position: relative
+      top: -280px
     @include xl
       font-size: 24px
       line-height: 46px
-      padding-left: 25rem
+      padding-left: 18rem
       position: relative
+      top: -270px
     @media (min-width: $xxl)
       font-size: 24px
       line-height: 46px
-      padding-left: 29rem
+      padding-left: 18rem
       position: relative
+      top: -270px
     p
       &:first-child
         text-transform: uppercase
@@ -867,6 +876,100 @@ section
       list-style: none
       @include xs
         padding-left: 12px
+
+
+/**
+/** Products prepare
+/**
+.products__prepare__slider
+  width: 100%
+  @include xs
+    width: 80%
+  @include md
+    width: 90%
+  .products__prepare__slider__type
+    margin-bottom: 20px
+    .slick-prev, .slick-next
+      width: 40px
+      height: 40px
+      @include xs
+        width: 30px
+        height: 30px
+      &:before
+        font-size: 40px
+        color: #fb3838
+        @include xs
+          font-size: 30px
+      .slick-prev
+        left: -50px
+        @include xs
+          left: -35px
+      .slick-next
+        right: -50px
+        @include xs
+          right: -35px
+    .products__prepare__type
+      font-size: 20px
+      font-weight: 600
+  .products__prepare__slider__items
+    .products__prepare__items__container
+      .products__prepare__items__box
+        position: relative
+        .products__prepare__items
+          display: inline-block
+          width: 230px
+          height: 45px
+          color: $white
+          font-size: 18px
+          line-height: 45px
+          text-align: center
+          text-transform: uppercase
+          background-color: $light-red
+          border: none
+          letter-spacing: 0.2em
+          border-radius: 50px
+          box-shadow: 0 6px 40px 0 rgba(128, 183, 179, 0.54)
+          margin-bottom: 25px
+          transition: all .3s ease-in
+          cursor: pointer
+          @include xs
+            box-shadow: 0 6px 20px 0 rgba(128, 183, 179, 0.54)
+          &:hover
+            background-color: $red
+.products__prepare__description
+  position: relative
+  background: $white
+  padding: 25px
+  width: auto
+  max-width: 400px
+  margin: 0 auto
+  line-height: 1.5
+  font-size: 18px
+
+/**
+/** Slider prepare
+/**
+.slider__box__prepare
+  width: 405px
+  height: 275px
+  border: 10px solid #fff
+  box-shadow: 0 0 65px 0 rgba(0,0,0,.15)
+  overflow: hidden
+  position: relative
+  top: -145px
+  @include xs
+    margin: 0 10px
+    top: 0
+  @include md
+    top: 0
+  @include lg
+    width: 360px
+    height: 260px
+
+  .prepare__slider
+    .prepare__slider__item
+      height: 275px !important
+      background-size: cover !important
 
 /**
 /** Section Footer
@@ -981,7 +1084,7 @@ section
             line-height: 44px
 
 /**
-/** Section Footer
+/** Callback form
 /**
 .callback__form
   .callback__form__wrap
