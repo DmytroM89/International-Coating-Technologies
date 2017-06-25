@@ -92,7 +92,7 @@ function remove_menus(){
 			unset($menu[key($menu)]);
 		}
 	}
-	remove_menu_page('edit.php?post_type=acf');
+	//remove_menu_page('edit.php?post_type=acf');
     remove_menu_page('themes.php');
 }
 add_action('admin_menu', 'remove_menus', 999);

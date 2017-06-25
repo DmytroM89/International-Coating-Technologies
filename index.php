@@ -11,7 +11,7 @@ get_header(); // Подключаем хедер?>
             <li class="menu__nav__item"><a href="#about"><?php echo __('[:ua]Про компанію[:en]About us[:ru]О компании'); ?></a></li>
             <li class="menu__nav__item"><a href="#advantage"><?php echo __('[:ua]Наші переваги[:en]Our benefits[:ru]Наши преимущества'); ?></a></li>
             <li class="menu__nav__item"><a href="#product"><?php echo __('[:ua]Продукти[:en]Products[:ru]Продукты'); ?></a></li>
-            <li class="menu__nav__item"><a href="#products__prepare"><?php echo __('[:ua]Продукти для підготовки поверхні[:en]Products[:ru]Продукты'); ?></a></li>
+            <li class="menu__nav__item"><a href="#products__prepare"><?php echo __('[:ua]Продукти для підготовки поверхні[:en]Products for surface preparation[:ru]Продукты для подготовки поверхности'); ?></a></li>
             <li class="menu__nav__item"><a href="#contacts"><?php echo __('[:ua]Контакти[:en]Contacts[:ru]Контакты'); ?></a></li>
         </ul>
     </div>
@@ -143,22 +143,20 @@ get_header(); // Подключаем хедер?>
             </div>
             <?php endif; ?>
         </div>
-        <div class="row center-xs">
-            <div class="product__in-development">
-                <p><strong><?php echo __('[:ua]Продукти в розробці:[:en]Products in development:[:ru]Продукты в разработке:'); ?></strong></p>
-                <?php
-                $pid = get_field('in-development');
-                if($pid):
-                    foreach($pid as $pidItem): ?>
-                        <p><strong><?php echo $pidItem['product_type']; ?></strong></p>
-                        <ul>
-                            <?php foreach ($pidItem['product_names'] as $prodName): ?>
-                                <li><?php echo $prodName['name']; ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
+        <div class="product__in-development">
+            <p><strong><?php echo __('[:ua]Продукти в розробці:[:en]Products in development:[:ru]Продукты в разработке:'); ?></strong></p>
+            <?php
+            $pid = get_field('in-development');
+            if($pid):
+                foreach($pid as $pidItem): ?>
+                    <p><strong><?php echo $pidItem['product_type']; ?></strong></p>
+                    <ul>
+                        <?php foreach ($pidItem['product_names'] as $prodName): ?>
+                            <li><?php echo $prodName['name']; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
 
 </section>
@@ -167,7 +165,7 @@ get_header(); // Подключаем хедер?>
     <div class="container">
         <div class="row center-xs">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="products__prepare__title section__title"><?php echo __('[:ua]продукти для підготовки поверхні[:en]Products[:ru]Продукты для подготовки поверхности'); ?></div>
+                <div class="products__prepare__title section__title"><?php echo __('[:ua]продукти для підготовки поверхні[:en]Products for surface preparation[:ru]Продукты для подготовки поверхности'); ?></div>
             </div>
         </div>
         <div class="row center-xs">
@@ -187,7 +185,10 @@ get_header(); // Подключаем хедер?>
                         <?php  foreach($type['products_prepare_items'] as $items): ?>
                             <div class="products__prepare__items__box">
                                 <div class="products__prepare__items"><?php echo $items['products_prepare_item_name']; ?></div>
-                                <div class="products__prepare__description mfp-with-anim mfp-hide" data-effect="mfp-zoom-in"><?php echo $items['products_prepare_item_descr']; ?></div>
+                                <div class="products__prepare__description mfp-with-anim mfp-hide" data-effect="mfp-zoom-in">
+                                    <h3><?php echo $items['products_prepare_item_name']; ?></h3>
+                                    <p><?php echo $items['products_prepare_item_descr']; ?></p>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                         </div>
@@ -197,12 +198,9 @@ get_header(); // Подключаем хедер?>
             </div>
             <?php endif; ?>
         </div>
-        <div class="row center-xs">
-            <?php
-                $photoPrepare = get_field('photo_prepare');
-
-                if($photoPrepare):
-            ?>
+        <?php
+        $photoPrepare = get_field('photo_prepare');
+        if($photoPrepare): ?>
             <div class="slider__box__prepare">
                 <div class="prepare__slider">
                     <?php foreach( $photoPrepare as $photos ): ?>
@@ -212,7 +210,6 @@ get_header(); // Подключаем хедер?>
             </div>
             <?php endif; ?>
         </div>
-    </div>
 
 </section>
 

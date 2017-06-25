@@ -1,7 +1,6 @@
 @import "_reset"
 @import "_fonts"
 @import "_flexboxgrid"
-@import "_animation"
 
 //Colors
 $dark-blue: #273d46
@@ -29,7 +28,6 @@ body
   margin: 0 auto
 
 section
-  padding: 30px 0
   .section__title
     display: inline-block
     width: 100%
@@ -688,10 +686,14 @@ section
 .product
   @media (max-width: $sm-top)
     margin-top: 70px
-  @media (min-width: $md) and (max-width: $xl-top)
+  @include md
     margin-top: 100px
-  @media (min-width: $xxl)
-    margin-top: 170px
+  @include lg
+    margin-top: 100px
+  @include xl
+    margin-top: 140px
+  @include xxl
+    margin-top: 215px
   .p-slider
     @include xs
       width: 80%
@@ -848,25 +850,25 @@ section
       line-height: 22px
       position: relative
       top: -185px
-      padding-left: 13.5rem
+      padding-left: 14rem
     @include lg
       font-size: 24px
       line-height: 46px
-      padding-left: 17.5rem
       position: relative
       top: -280px
+      padding-left: 18rem
     @include xl
       font-size: 24px
       line-height: 46px
-      padding-left: 18rem
       position: relative
       top: -270px
+      padding-left: 25rem
     @media (min-width: $xxl)
       font-size: 24px
       line-height: 46px
-      padding-left: 18rem
       position: relative
       top: -270px
+      padding-left: 30rem
     p
       &:first-child
         text-transform: uppercase
@@ -881,61 +883,77 @@ section
 /**
 /** Products prepare
 /**
-.products__prepare__slider
-  width: 100%
+.products__prepare
+  position: relative
   @include xs
-    width: 80%
+    margin-top: 70px
+  @include sm
+    margin-top: -55px
   @include md
-    width: 90%
-  .products__prepare__slider__type
-    margin-bottom: 20px
-    .slick-prev, .slick-next
-      width: 40px
-      height: 40px
-      @include xs
-        width: 30px
-        height: 30px
-      &:before
-        font-size: 40px
-        color: #fb3838
+    margin-top: -65px
+  @include lg
+    top: -170px
+  @include xl
+    top: -130px
+  @include xxl
+    top: -55px
+  .products__prepare__slider
+    width: 100%
+    @include xs
+      width: 80%
+    @include md
+      width: 90%
+    .products__prepare__slider__type
+      margin-bottom: 20px
+      .slick-list
+        padding: 0 10px
+      .slick-prev, .slick-next
+        width: 40px
+        height: 40px
         @include xs
-          font-size: 30px
-      .slick-prev
-        left: -50px
-        @include xs
-          left: -35px
-      .slick-next
-        right: -50px
-        @include xs
-          right: -35px
-    .products__prepare__type
-      font-size: 20px
-      font-weight: 600
-  .products__prepare__slider__items
-    .products__prepare__items__container
-      .products__prepare__items__box
-        position: relative
-        .products__prepare__items
-          display: inline-block
-          width: 230px
-          height: 45px
-          color: $white
-          font-size: 18px
-          line-height: 45px
-          text-align: center
-          text-transform: uppercase
-          background-color: $light-red
-          border: none
-          letter-spacing: 0.2em
-          border-radius: 50px
-          box-shadow: 0 6px 40px 0 rgba(128, 183, 179, 0.54)
-          margin-bottom: 25px
-          transition: all .3s ease-in
-          cursor: pointer
+          width: 30px
+          height: 30px
+        &:before
+          font-size: 40px
+          color: #fb3838
           @include xs
-            box-shadow: 0 6px 20px 0 rgba(128, 183, 179, 0.54)
-          &:hover
-            background-color: $red
+            font-size: 30px
+        .slick-prev
+          left: -50px
+          @include xs
+            left: -35px
+        .slick-next
+          right: -50px
+          @include xs
+            right: -35px
+      .products__prepare__type
+        font-size: 20px
+        font-weight: 600
+    .products__prepare__slider__items
+      .products__prepare__items__container
+        .products__prepare__items__box
+          position: relative
+          .products__prepare__items
+            display: inline-block
+            width: 230px
+            height: 45px
+            color: $white
+            font-size: 18px
+            line-height: 45px
+            text-align: center
+            text-transform: uppercase
+            background-color: $light-red
+            border: none
+            letter-spacing: 0.2em
+            border-radius: 50px
+            box-shadow: 0 6px 40px 0 rgba(128, 183, 179, 0.54)
+            margin-bottom: 25px
+            transition: all .3s ease-in
+            cursor: pointer
+            @include xs
+              box-shadow: 0 6px 20px 0 rgba(128, 183, 179, 0.54)
+            &:hover
+              background-color: $red
 .products__prepare__description
   position: relative
   background: $white
@@ -944,7 +962,12 @@ section
   max-width: 400px
   margin: 0 auto
   line-height: 1.5
-  font-size: 18px
+  h3
+    font-size: 22px
+    font-weight: 600
+    color: $red
+  p
+    font-size: 18px
 
 /**
 /** Slider prepare
@@ -957,14 +980,20 @@ section
   overflow: hidden
   position: relative
   top: -145px
+  margin: 0 auto
   @include xs
-    margin: 0 10px
+    width: 290px
+    top: 0
+  @include sm
     top: 0
   @include md
     top: 0
   @include lg
     width: 360px
     height: 260px
+  @include xl
+    width: 405px
+    height: 275px
 
   .prepare__slider
     .prepare__slider__item
@@ -990,12 +1019,18 @@ section
     margin-bottom: 400px
   @include md
     height: 170px
-    margin-top: 170px
+    margin-top: 200px
     margin-bottom: 400px
-  @media (min-width: $lg)
+  @include lg
     height: 244px
-    margin-top: 300px
-    margin-bottom: 300px
+    margin-bottom: 400px
+  @include xl
+    height: 244px
+    margin-bottom: 400px
+  @include xxl
+    height: 244px
+    margin-top: 100px
+    margin-bottom: 400px
   .contacts
     .contacts__box
       display: table
